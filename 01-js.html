@@ -1,17 +1,28 @@
 <div id="root"></div>
 <script src="https://unpkg.com/react@16.3.1/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.production.min.js"></script>
-<script type="text/javascript">
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script type="text/babel">
 const rootElement = document.getElementById('root')
 // const element = document.createElement('div')
 // element.textContent = 'Hello World!'
 // element.className = 'container'
 // rootElement.appendChild(element)
-const element = React.createElement(
-    'div',
-    {className: 'container'},
-    'Hello World (ﾉ◕ヮ◕)ﾉ✲ﾟ｡⋆',
-    '<br>Goodbye World :('
+// //const element = React.createElement(
+// //    'div',
+// //    {className: 'container'},
+// //    'Hello World (ﾉ◕ヮ◕)ﾉ✲ﾟ｡⋆',
+// //    '<br>Goodbye World :('
+// //)
+const content = 'Hello World (ノ°Д°）ノ︵ ┻━┻'
+const myClassName = 'container'
+const props = {
+    className: 'container',
+    children: 'Hello World',
+}
+const element = (
+    <div className="not-the-actual-class" {...props} className="actual-class" />
+    // <div className={myClassName + '_01'}>{content}</div>
 )
 ReactDOM.render(element, rootElement)
 </script>
