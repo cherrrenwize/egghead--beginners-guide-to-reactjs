@@ -1,0 +1,48 @@
+<div id="root"></div>
+<script src="https://unpkg.com/react@16.3.1/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.3.1/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
+<script type="text/babel">
+const rootElement = document.getElementById('root')
+// //function SayHello(props) {
+// //	return (
+// //		<div>
+// //			Hello {props.firstName} {props.lastName || 'DefaultLN'}!
+// //		</div>
+// //	)
+// //}
+// const PropTypes = {
+// 	string(props, propName, componentName) {
+// 		if (typeof props[propName] !== 'string') {
+// 			return new Error(
+// 				`Error: ${propName} in ${componentName} as ${typeof props[propName]}, string expected.`
+// 			)
+// 		}
+// 	},
+// }
+// //SayHello.propTypes = {
+// //	firstName: PropTypes.string.isRequired,
+// //	lastName: PropTypes.string.isRequired,
+// //}
+// ReactDOM.render(element, rootElement)
+class SayHello extends React.Component {
+	static propTypes = {
+		firstName: PropTypes.string.isRequired,
+		lastName: PropTypes.string.isRequired,
+	}
+	render() {
+		const {firstName, lastName} = this.props
+		return (
+			<div>
+				Hello {firstName} {lastName || 'DefaultLN'}!
+			</div>
+		)
+	}
+}
+
+ReactDOM.render(
+	<SayHello firstName={true} />,
+	rootElement
+)
+</script>
