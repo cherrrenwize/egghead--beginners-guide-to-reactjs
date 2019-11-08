@@ -26,6 +26,10 @@ class StopWatch extends React.Component {
 		clearInterval(this.timer)
 		this.setState({lapse: 0, running: false})
 	}
+	// When the component is removed from the page (unrendered or before being rendered), this method will be called. Use to clear any possible memory leak :)
+	componentWillUnmount() {
+		clearInterval(this.timer)
+	}
 	render() {
 		const {lapse, running} = this.state
 		const buttonStyles = {
